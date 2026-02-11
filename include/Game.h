@@ -1,8 +1,18 @@
+#include <iostream>
+#include <vector> 
 #include <SDL2/SDL.h>
 
 struct Vector2 {
     float x;
     float y;
+};
+
+struct Ball {
+    Vector2 Pos;
+    Vector2 Vel;
+
+    // Constructor
+    Ball(Vector2 pos, Vector2 vel) : Pos(pos), Vel(vel) {}
 };
 
 class Game {
@@ -21,8 +31,13 @@ private:
     bool mIsRunning;
     Uint32 mTickCount;
 
-    int mPaddleDir;
-    Vector2 mPaddlePos;
-    Vector2 mBallPos;
-    Vector2 mBallVel;
+    // Player 1
+    int mPaddleDir_p1;
+    Vector2 mPaddlePos_p1;
+
+    // Player 2
+    int mPaddleDir_p2;
+    Vector2 mPaddlePos_p2;
+
+    std::vector<Ball> mBall;
 };
